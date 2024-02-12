@@ -1,0 +1,25 @@
+html {
+  height: 100%;
+  background-color: darkmagenta;
+  margin: 0;
+  color: white;
+}
+body {
+  min-height: 100%;
+  margin: 0;
+}
+h1,
+h2 {
+  color: rgb(223, 196, 223);
+}
+#content {
+  display: flex;
+}
+#main {
+  display: flex;
+  flex-direction: column;
+  flex: 3;
+}
+#side-section {
+  flex: 1;
+}
