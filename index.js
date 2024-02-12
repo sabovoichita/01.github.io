@@ -75,6 +75,47 @@ function loadSkills() {
   });
 }
 
+function loadLanguages() {
+  fetch("languages.json")
+    .then((response) => response.json())
+    .then((languages) => {
+      prinJsonIntoTable(languages, "languages-table");
+    });
+}
+
+function prinJsonIntoTable(jsonData, elementId) {
+  var col = [];
+  for (var i = 0; i < jsonData.length; i++) {
+    for (var key in jsonData[i]) {
+      if (col.indexOf(key) === -1) {
+        col.push(key);
+      }
+    }
+  }
+  //Create HTML Table
+  var table = document.createElement("table");
+  //Create row for the header
+  var tr = table.insertRow(-1);
+  for (var i = 0; i < col.length; i++) {
+    var th = document.createElement("th");
+    th.innerHTML = col[i];
+    tr.appendChild(th);
+  }
+  //Add data to table rows
+  for (var i = 0; i < jsonData.length; i++) {
+    tr = table.insertRow(-1);
+
+    for (var j = 0; j < col.length; j++) {
+      var tabCEll = tr.insertCell(-1);
+      tabCEll.innerHTML = jsonData[i][col[j]];
+    }
+  }
+  //All columns for header
+  var divContainer = document.getElementById("table");
+  divContainer.innerHTML = " ";
+  divContainer.appendChild(table).style.border = "none";
+}
 showPage(activePage);
 initEvents();
 loadSkills();
+loadLanguages();
