@@ -40,5 +40,41 @@ function initEvents() {
   });
 }
 
+function sortSkillsByEndorcements(a, b) {
+  console.info("sort", a, b);
+  return b.endorcements - a.endorcements;
+}
+
+function sortByName(a, b) {
+  return a.name.localeCompare(b.name);
+}
+function showSkills(skills) {
+  skills.sort(sortByName);
+  //   skills.sort(sortSkillsByEndorcements);
+
+  const ul = $("#skills ul");
+
+  const text = skills.map((skill) => {
+    let cls = "";
+    if (skill.favorite == true) {
+      cls = "favorite";
+    }
+
+    console.info("%o (&o)", skill.favorite, cls);
+    return `<li class = "${cls}">${skill.name}<span>-${skill.endorcements}</span></li>`;
+  });
+  console.warn(text);
+  ul.innerHTML = text.join("");
+}
+
+function loadSkills() {
+  fetch("skills.json").then((r) => {
+    r.json().then((skills) => {
+      showSkills(skills);
+    });
+  });
+}
+
 showPage(activePage);
 initEvents();
+loadSkills();
