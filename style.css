@@ -104,3 +104,10 @@ th {
 table th {
   background-color: rgb(228, 206, 221);
 }
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  background: linear-gradient(-240deg, purple, transparent);
+}
