@@ -1,7 +1,4 @@
-# 01.github.io
-
-# sabovoichita.github.io
 
 ## Live My first edition
 
-[sabovoichita.github.io]([https://sabovoichita.github.io/01.github.io/](https://sabovoichita.github.io/voichitaMaria.github.io/))
+[live](https://sabovoichita.github.io/voichitaMaria.github.io/)
